@@ -14,66 +14,89 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  color: #a3adb8;
+`;
+
+const SelectedDiv = styled.div`
+  display: flex;
+  padding: 12px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #1b63a9;
+  border: 3px solid #1b63a9;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+`;
+
+const MainMenuDiv = styled.div`
+  display: flex;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
 `;
 
 const TableMenu = () => {
   return (
-    <div>
-      <div>
+    <MainMenuDiv>
+      <Div>
         <span>
           <HardDriveSVG />
         </span>
         <span>New Mismatches</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <ProcessedSvg />
         </span>
         <span>Processed</span>
-      </div>
-      <div>
+      </Div>
+      <SelectedDiv>
         <span>
           <UnCollectedSVG />
         </span>
         <span>UnCollected</span>
-      </div>
-      <div>
+      </SelectedDiv>
+      <Div>
         <span>
           <UnSubscribeSVG />
         </span>
         <span>UnSubscribed</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <MappedSVG />
         </span>
         <span>Mapped</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <ArchiveSVG />
         </span>
         <span>Archived</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <CorruptSVG />
         </span>
         <span>Corrupt</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <IgnoreSVG />
         </span>
         <span>Ignored</span>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <span>
           <DuplicateSVG />
         </span>
         <span>Duplicate</span>
-      </div>
-    </div>
+      </Div>
+    </MainMenuDiv>
   );
 };
 
