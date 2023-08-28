@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
-const SVGStyled = styled.svg`
-  margin-left: 20px;
-  margin-top: 23px;
-  margin-bottom: 23px;
-`;
+// const SVGStyled = styled.svg`
+//   margin-left: 20px;
+//   margin-top: 23px;
+//   margin-bottom: 23px;
+// `;
 
 const HambergerSVG = () => {
   return (
