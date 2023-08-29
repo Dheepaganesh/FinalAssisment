@@ -17,29 +17,38 @@ const Div = styled.div`
   color: #a3adb8;
 `;
 
-const DataOptions = styled.span`
-color: var(--grey-t-50, #A3ADB8);
-text-align: center;
-font-family: SF Pro Display;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; 
-`
+const DataOptions = styled.div`
+  display: flex;
+  color: var(--grey-t-50, #a3adb8);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  gap: 5px;
+`;
+
+const SelectedOption = styled.span`
+  color: #1b63a9;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+`;
 
 const SelectedDiv = styled.div`
-  width:133px;
-  height:24px;
+  width: 133px;
+  height: 24px;
   display: flex;
   padding: 12px 15px;
   justify-content: center;
   align-items: center;
   text-align: center;
-font-family: SF Pro Display;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
   gap: 10px;
   color: #1b63a9;
   border: 3px solid #1b63a9;
@@ -49,15 +58,16 @@ line-height: 24px;
 `;
 
 const MainMenuDiv = styled.div`
-width:1160px;
-height:50px;
+  width: 1160px;
+  height: 50px;
+  border: 0.05px solid #a3adb8;
+  margin: 0 auto;
+  border: none;
   display: flex;
   padding: 0px 10px;
-  justify-content: center;
-  align-items: flex-start;
   gap: 5px;
   align-self: stretch;
-  background: #FFF;
+  background: #fff;
 `;
 
 const TableMenu = () => {
@@ -67,7 +77,10 @@ const TableMenu = () => {
         <span>
           <HardDriveSVG />
         </span>
-        <DataOptions>New Mismatches</DataOptions>
+        <DataOptions>
+          <span>New</span>
+          <span>Mismatches</span>
+        </DataOptions>
       </Div>
       <Div>
         <span>
@@ -79,7 +92,7 @@ const TableMenu = () => {
         <span>
           <UnCollectedSVG />
         </span>
-        <DataOptions>UnCollected</DataOptions>
+        <SelectedOption>UnCollected</SelectedOption>
       </SelectedDiv>
       <Div>
         <span>
