@@ -8,13 +8,25 @@ import ArchiveSVG from "../svg/ArchiveSVG";
 import CorruptSVG from "../svg/CorruptSVG";
 import IgnoreSVG from "../svg/IgnoreSVG";
 import DuplicateSVG from "../svg/DuplicateSVG";
-const Div = styled.div`
+const Data = styled.div`
   display: flex;
   padding: 12px 15px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   color: #a3adb8;
+
+  @media (max-width: 400px) {
+    padding: 7px 9px;
+    width: 45px;
+    gap: 3px;
+    color: var(--grey-t-50, #a3adb8);
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
 `;
 
 const DataOptions = styled.div`
@@ -26,6 +38,13 @@ const DataOptions = styled.div`
   font-weight: 500;
   line-height: 24px;
   gap: 5px;
+
+  @media (max-width: 400px) {
+    font-size: 8px;
+    gap: 2px;
+    font-weight: 600;
+    color: var(--grey-t-50, #a3adb8);
+  }
 `;
 
 const SelectedOption = styled.span`
@@ -35,9 +54,16 @@ const SelectedOption = styled.span`
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+
+  @media (max-width: 400px) {
+    padding-top: 1px;
+    font-size: 8px;
+    font-weight: 600;
+    color: #1b63a9;
+  }
 `;
 
-const SelectedDiv = styled.div`
+const SelectedMenu = styled.div`
   width: 133px;
   height: 24px;
   display: flex;
@@ -55,25 +81,52 @@ const SelectedDiv = styled.div`
   border-top: none;
   border-left: none;
   border-right: none;
+
+  @media (max-width: 400px) {
+    padding: 7px 9px;
+    width: 45px;
+    gap: 3px;
+    color: var(--grey-t-50, #a3adb8);
+
+    svg {
+      margin-top: 8px;
+      width: 10px;
+      height: 10px;
+    }
+  }
 `;
 
-const MainMenuDiv = styled.div`
+const MainMenu = styled.div`
   width: 1160px;
   height: 50px;
-  border: 0.05px solid #a3adb8;
-  margin: 0 auto;
-  border: none;
+  margin-left: 21px;
+  margin-right: 21px;
   display: flex;
   padding: 0px 10px;
+  justify-content: center;
+  align-items: flex-start;
   gap: 5px;
   align-self: stretch;
   background: #fff;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 400px) {
+    width: 97%;
+    margin: 0;
+    height: auto;
+    padding: 0px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 `;
 
 const TableMenu = () => {
   return (
-    <MainMenuDiv>
-      <Div>
+    <MainMenu>
+      <Data>
         <span>
           <HardDriveSVG />
         </span>
@@ -81,56 +134,56 @@ const TableMenu = () => {
           <span>New</span>
           <span>Mismatches</span>
         </DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <ProcessedSvg />
         </span>
         <DataOptions>Processed</DataOptions>
-      </Div>
-      <SelectedDiv>
+      </Data>
+      <SelectedMenu>
         <span>
           <UnCollectedSVG />
         </span>
         <SelectedOption>UnCollected</SelectedOption>
-      </SelectedDiv>
-      <Div>
+      </SelectedMenu>
+      <Data>
         <span>
           <UnSubscribeSVG />
         </span>
         <DataOptions>UnSubscribed</DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <MappedSVG />
         </span>
         <DataOptions>Mapped</DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <ArchiveSVG />
         </span>
         <DataOptions>Archived</DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <CorruptSVG />
         </span>
         <DataOptions>Corrupt</DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <IgnoreSVG />
         </span>
         <DataOptions>Ignored</DataOptions>
-      </Div>
-      <Div>
+      </Data>
+      <Data>
         <span>
           <DuplicateSVG />
         </span>
         <DataOptions>Duplicate</DataOptions>
-      </Div>
-    </MainMenuDiv>
+      </Data>
+    </MainMenu>
   );
 };
 

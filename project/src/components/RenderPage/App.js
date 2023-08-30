@@ -1,8 +1,7 @@
-import logo from "./logo.svg";
-import TableComponent from "./components/TableComponent";
+import TableComponent from "../TableComponent";
 import { styled } from "styled-components";
 
-const MainPage = styled.div`
+const RenderPage = styled.div`
   margin: 0%;
   padding: 0px;
   width: 1220px;
@@ -18,9 +17,9 @@ const MainPage = styled.div`
 
 function App() {
   return (
-    <MainPage className="App">
+    <RenderPage className="App">
       <TableComponent />
-    </MainPage>
+    </RenderPage>
   );
 }
 

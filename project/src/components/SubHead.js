@@ -6,14 +6,17 @@ import DownloadSVG from "../svg/DownloadSVG";
 
 const SubLayout = styled.div`
   width: 1220px;
-  height: 70px;
   display: flex;
   margin-top: 20px;
+  margin-bottom: 20px;
   flex-direction: row;
   justify-content: space-between;
 
   @media (max-width: 400px) {
     width: 400px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 

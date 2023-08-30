@@ -1,15 +1,20 @@
 import HeadComponent from "./Header";
-import { Button, Switch, Table, Checkbox } from "antd";
+import { Button, Table, Checkbox, Tabs } from "antd";
 import SubHead from "./SubHead";
 import TableMenu from "./MenuTable";
 import { styled } from "styled-components";
 import PlusSVG from "../svg/plusSVG";
+import TabComponent from "./TabComponent";
+import { useState } from "react";
+import LineGraph from "./GraphData";
+import ChartComponent from "./GraphData";
+import ChartComp from "./Line";
 
 const MainPage = styled.div`
   margin: 0%;
   padding: 0px;
   width: 1220px;
-  height: auto;
+  height: 723px;
   font-family: "SF Pro Display", sans-serif;
   border: 1px solid #a3adb8;
   background-color: rgb(248, 248, 249);
@@ -19,12 +24,27 @@ const MainPage = styled.div`
   }
 `;
 
+const StyledTab = styled(Tabs)`
+  width: 1181px;
+  height: 46px;
+  background: #fff;
+  margin-left: 21px;
+  margin-right: 21px;
+
+  .ant-tabs-nav-list {
+    padding-left: 10px;
+  }
+`;
+
 const StyledTable = styled(Table)`
   width: 1181px;
+  height: 553px;
   border: 0.01px solid black;
-  margin: 0 auto;
+  margin-left: 21px;
+  margin-right: 21px;
   border: none;
   border-radius: 0;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 
   .ant-table-wrapper,
   .ant-table,
@@ -50,12 +70,48 @@ const StyledTable = styled(Table)`
     background-color: #e4e7ea;
     border: none;
   }
+
+  @media (max-width: 400px) {
+    width: 100%;
+    margin: 0;
+    overflow: auto;
+    max-height: 400px;
+
+    .ant-table {
+      width: 100%;
+    }
+
+    .ant-table-thead tr {
+      padding: 12px 20px;
+      width: 400px;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .ant-table-thead tr .ant-table-cell {
+      padding: 12px 15px;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+      background-color: #e4e7ea;
+      border: none;
+      font-size: 5px;
+    }
+
+    .ant-table-tbody {
+      background-color: white;
+    }
+  }
 `;
 
 const CheckBoxStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 400px) {
+    gap: 5px;
+  }
 `;
 
 const CustomerName = styled.div`
@@ -64,6 +120,10 @@ const CustomerName = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 400px) {
+    font-size: 9px;
+  }
 `;
 
 const CustomerMail = styled.div`
@@ -72,6 +132,10 @@ const CustomerMail = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 400px) {
+    font-size: 7px;
+  }
 `;
 
 const ReSubscribeButton = styled(Button)`
@@ -82,6 +146,16 @@ const ReSubscribeButton = styled(Button)`
   gap: 10px;
   border-radius: 3px;
   background: #e4e7ea;
+
+  @media (max-width: 400px) {
+    display: flex;
+    padding: 0.5px 1px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background: #e4e7ea;
+    font-size: 5px;
+  }
 `;
 
 const NoContainer = styled.div`
@@ -123,6 +197,14 @@ const Info = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 400px) {
+    font-size: 6px;
+    color: var(--grey-s-20, #3a4a5b);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 `;
 const columns = [
   {
@@ -280,13 +362,97 @@ const data = [
   },
 ];
 
+const items = [
+  {
+    key: "1",
+    label: "New Mismatched",
+    columns: [],
+    tableData: [],
+    content: false,
+  },
+  {
+    key: "2",
+    label: "Processed",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "3",
+    label: "UnCollected",
+    columns: columns,
+    tableData: data,
+  },
+  {
+    key: "4",
+    label: "UnSubscribed",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "5",
+    label: "Mapped",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "6",
+    label: "Archived",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "7",
+    label: "Corrupt",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "8",
+    label: "Ignored",
+    columns: [],
+    tableData: [],
+  },
+  {
+    key: "9",
+    label: "Duplicate",
+    columns: [],
+    tableData: [],
+  },
+];
+
 const TableComponent = () => {
+  const [activeKey, setActiveKey] = useState(items[0].key);
+
+  const handleTabChange = (key) => {
+    setActiveKey(key);
+  };
+
+  const activeItem = items.find((item) => item.key === activeKey);
+
   return (
     <MainPage>
-      <HeadComponent />
+      {/* <HeadComponent />
       <SubHead />
-      <TableMenu />
-      <StyledTable columns={columns} dataSource={data} />
+      <StyledTab defaultActiveKey={activeKey} onChange={handleTabChange}>
+        {items.map((item) => (
+          <StyledTab.TabPane tab={item.label} key={item.key}>
+            <Table
+              dataSource={item.tableData}
+              columns={[
+                { title: <Checkbox />, dataIndex: "checkbox" },
+                { title: "AgentInfo", dataIndex: "agentInfo" },
+                { title: "CustomerInfo", dataIndex: "customerinfo" },
+                { title: "Date", dataIndex: "date" },
+                { title: "Transaction ID", dataIndex: "transactionid" },
+                { title: "Date", dataIndex: "date" },
+                { title: "Actions", dataIndex: "actions" },
+              ]}
+            />
+          </StyledTab.TabPane>
+        ))}
+      </StyledTab> */}
+      {/* <ChartComponent /> */}
+      <ChartComp />
     </MainPage>
   );
 };

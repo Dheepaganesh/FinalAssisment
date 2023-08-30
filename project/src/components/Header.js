@@ -20,6 +20,8 @@ const Header = styled.div`
 
   @media (max-width: 400px) {
     width: 100%;
+    height: auto;
+    flex-flow: column;
   }
 `;
 
@@ -31,6 +33,8 @@ const Directory = styled.div`
   gap: 20px;
 
   @media (max-width: 400px) {
+    margin-left: 10px;
+    gap: 10px;
   }
 `;
 const DirectoryMenu = styled.div`
@@ -57,20 +61,20 @@ const MisMatchHeader = styled.span`
   letter-spacing: -0.18px;
   text-transform: capitalize;
 `;
-const Route = styled.div`
+const LocationRoute = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
 `;
 
-const RouteDiv = styled.div`
+const RouteMenu = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 10px;
 `;
 
-const RouteSpan = styled.span`
+const Route = styled.span`
   color: var(--blue-t-15, #3d7ab6);
   font-size: 13px;
   font-style: normal;
@@ -102,6 +106,9 @@ const Options = styled.div`
 
   @media (max-width: 400px) {
     margin-left: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 `;
 
@@ -175,7 +182,7 @@ const ProfileName = styled.span`
   letter-spacing: -0.13px;
   text-transform: capitalize;
 `;
-const ProfileName1 = styled.span`
+const Profilename = styled.span`
   color: var(--grey-100, #485c72);
   text-align: right;
   font-size: 13px;
@@ -200,29 +207,29 @@ const HeadComponent = () => {
           <MisMatch>
             <MisMatchHeader>MisMatch</MisMatchHeader>
           </MisMatch>
-          <Route>
-            <RouteDiv>
-              <RouteSpan>Organization</RouteSpan>
-            </RouteDiv>
+          <LocationRoute>
+            <RouteMenu>
+              <Route>Organization</Route>
+            </RouteMenu>
             <span>
               <BreadCrumbSVG />
             </span>
-            <RouteDiv>
-              <RouteSpan>Accounts</RouteSpan>
-            </RouteDiv>
+            <RouteMenu>
+              <Route>Accounts</Route>
+            </RouteMenu>
             <span>
               <BreadCrumbSVG />
             </span>
-            <RouteDiv>
-              <RouteSpan>Dashboard</RouteSpan>
-            </RouteDiv>
+            <RouteMenu>
+              <Route>Dashboard</Route>
+            </RouteMenu>
             <span>
               <BreadCrumbSVG />
             </span>
-            <RouteDiv>
+            <RouteMenu>
               <CurrentRoute>Organization</CurrentRoute>
-            </RouteDiv>
-          </Route>
+            </RouteMenu>
+          </LocationRoute>
         </DirectoryMenu>
       </Directory>
       <Options>
@@ -248,7 +255,7 @@ const HeadComponent = () => {
           >
             <ProfileInfo>
               <ProfileName>Bessie</ProfileName>
-              <ProfileName1>Copper</ProfileName1>
+              <Profilename>Copper</Profilename>
               <DownIconStyle>
                 <DropDownSVG />
               </DownIconStyle>
