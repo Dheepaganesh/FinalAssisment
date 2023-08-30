@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { Tabs, Table } from "antd";
 import { styled } from "styled-components";
 
-const StyledTabs = styled(Tabs)`
-  width: 1160px;
-  background: #fff;
-`;
+
 
 const items = [
   {
@@ -47,7 +44,7 @@ const TabComponent = () => {
   const activeItem = items.find((item) => item.key === activeKey);
 
   return (
-    <StyledTabs defaultActiveKey={activeKey} onChange={handleTabChange}>
+    <Tabs defaultActiveKey={activeKey} onChange={handleTabChange}>
       {items.map((item) => (
         <Tabs.TabPane tab={item.label} key={item.key}>
           <Table
@@ -59,7 +56,7 @@ const TabComponent = () => {
           />
         </Tabs.TabPane>
       ))}
-    </StyledTabs>
+    </Tabs>
   );
 };
 
