@@ -1,13 +1,14 @@
 import { styled } from "styled-components";
-import { Tabs,Table,Button } from "antd";
+import { Tabs, Table, Button } from "antd";
 import { Line } from "react-chartjs-2";
 export const MainPage = styled.div`
   margin: 0%;
   padding: 0px;
   width: 1220px;
-  height: 723px;
+  height: 800px;
   font-family: "SF Pro Display", sans-serif;
   border: 1px solid #a3adb8;
+  border-bottom: none;
   background-color: rgb(248, 248, 249);
 
   @media (max-width: 400px) {
@@ -198,7 +199,6 @@ export const Info = styled.div`
   }
 `;
 
-
 export const Data = styled.div`
   display: flex;
   padding: 12px 15px;
@@ -313,32 +313,34 @@ export const MainMenu = styled.div`
 
 export const StyledTabs = styled(Tabs)`
   width: 1160px;
-  height:70px;
+  height: 70px;
   background: #fff;
 
-  .ant-tabs{
-    height:70px; 
+  .ant-tabs {
+    height: 70px;
   }
 
-  .ant-tabs .ant-tabs-tab+.ant-tabs-tab{
+  .ant-tabs .ant-tabs-tab + .ant-tabs-tab {
     margin: 0 0 0 10px;
   }
 
-  .ant-tabs-content .ant-tabs-content-top{
-    margin-top:-12px;
+  .ant-tabs-content .ant-tabs-content-top {
+    margin-top: -12px;
   }
 `;
 
 export const GraphStyle = styled(Line)`
-  width:500px;
-`
+  width: 500px;
+`;
 export const EmptyTable = styled(Table)`
-width:600px;
-height:800px;
-`
+  width: 600px;
+  height: 800px;
+`;
 export const GraphContainer = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-
-`
+  width: 744px;
+  height: 507px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+`;
