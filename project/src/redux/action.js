@@ -44,9 +44,7 @@ export const FetchUser = () => {
         },
       })
       .then((response) => {
-        const users = response.data;
-        dispatch(fetchUserSuccess(users));
-        console.log(users);
+        dispatch(fetchUserSuccess(response?.data));
       })
       .catch((error) => {
         const errormsg = error.message;

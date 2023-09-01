@@ -5,7 +5,7 @@ import ThreeDot from "../svg/ThreeDotSVG";
 import DownloadSVG from "../svg/DownloadSVG";
 
 const SubLayout = styled.div`
-  width: 1220px;
+  width: 100%;
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;

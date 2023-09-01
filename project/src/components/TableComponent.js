@@ -1,15 +1,9 @@
 import HeadComponent from "./Header";
-import { Button, Table, Checkbox, Tabs } from "antd";
+import { Table, Checkbox } from "antd";
 import SubHead from "./SubHead";
-import TableMenu from "./MenuTable";
-import { styled } from "styled-components";
-import PlusSVG from "../svg/plusSVG";
-import TabComponent from "./TabComponent";
 import { useState } from "react";
-import LineGraph from "./GraphData";
-import ChartComponent from "./GraphData";
 import ChartComp from "./Line";
-import { MainPage } from "./StylePage/StyleComponent";
+import { MainPage, StyledTable } from "./StylePage/StyleComponent";
 import { data } from "./TableData/DataContainer";
 import { Data, DataOptions, StyledTab } from "./StylePage/StyleComponent";
 import HardDriveSVG from "../svg/HardDriveSVG";
@@ -64,7 +58,7 @@ const items = [
         <span>
           <HardDriveSVG />
         </span>
-        <span>Mis matches</span>
+        <DataOptions>New Mismatches</DataOptions>
       </Data>
     ),
     columns: [],
@@ -178,13 +172,11 @@ const items = [
 ];
 
 const TableComponent = () => {
-  const [activeKey, setActiveKey] = useState(items[0].key);
+  const [activeKey, setActiveKey] = useState(items[0]?.key);
 
   const handleTabChange = (key) => {
     setActiveKey(key);
   };
-
-  const activeItem = items.find((item) => item.key === activeKey);
 
   return (
     <div>
@@ -193,9 +185,9 @@ const TableComponent = () => {
         <SubHead />
         <StyledTab defaultActiveKey={activeKey} onChange={handleTabChange}>
           {items.map((item) => (
-            <StyledTab.TabPane tab={item.label} key={item.key}>
-              <Table
-                dataSource={item.tableData}
+            <StyledTab.TabPane tab={item?.label} key={item?.key}>
+              <StyledTable
+                dataSource={item?.tableData}
                 columns={[
                   { title: <Checkbox />, dataIndex: "checkbox" },
                   { title: "AgentInfo", dataIndex: "agentInfo" },

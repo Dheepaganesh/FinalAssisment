@@ -9,7 +9,7 @@ import DropDown from "../svg/DropDown";
 import DropDownSVG from "../svg/DropDown";
 
 const Header = styled.div`
-  width: 1220px;
+  width: 100%;
   height: 70px;
   display: flex;
   flex-direction: row;

@@ -4,10 +4,9 @@ import { Line } from "react-chartjs-2";
 export const MainPage = styled.div`
   margin: 0%;
   padding: 0px;
-  width: 1220px;
-  height: 800px;
+  width: 100%;
+  height: auto;
   font-family: "SF Pro Display", sans-serif;
-  border: 1px solid #a3adb8;
   border-bottom: none;
   background-color: rgb(248, 248, 249);
 
@@ -20,8 +19,9 @@ export const StyledTab = styled(Tabs)`
   width: 1181px;
   height: 70px;
   background: #fff;
-  margin-left: 21px;
-  margin-right: 21px;
+  margin-left: auto;
+  margin-right: auto;
+
 
   .ant-tabs-nav-list {
     padding-left: 10px;
@@ -32,9 +32,9 @@ export const StyledTable = styled(Table)`
   width: 1181px;
   height: 553px;
   border: 0.01px solid black;
-  margin-left: 21px;
-  margin-right: 21px;
-  border: none;
+  margin:0 auto;
+  margin-top:-16px;
+    border: none;
   border-radius: 0;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 
@@ -344,3 +344,15 @@ export const GraphContainer = styled.div`
   justify-content: space-between;
   background-color: white;
 `;
+
+export const FetchTable = styled(Table)`
+  width: 1181px;
+  height:auto;
+  border: 0.01px solid black;
+  margin-top:70px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+`
