@@ -190,6 +190,9 @@ const ChartComp = () => {
   const options = {
     responsive: true,
     plugins: {
+      legend: {
+        display: false,
+      },
       title: {
         display: true,
         text: "",
@@ -200,7 +203,7 @@ const ChartComp = () => {
         type: "category",
         title: {
           display: true,
-          text: "Date",
+          text: "",
         },
         grid: {
           display: false,
@@ -213,7 +216,7 @@ const ChartComp = () => {
         max: 300,
         title: {
           display: true,
-          text: "Value",
+          text: "",
         },
 
         grid: {
