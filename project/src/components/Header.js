@@ -5,8 +5,14 @@ import { Button } from "antd";
 import CompassSVG from "../svg/CompassSVG";
 import BellSVG from "../svg/BellSVG";
 import ProfilePhoto from "../Images/Profile.png";
-import DropDown from "../svg/DropDown";
 import DropDownSVG from "../svg/DropDown";
+
+const ProfileData = styled.div`
+  display: "flex",
+  flex-direction: "column",
+  align-items: "flex-start",
+  gap: "3px;"
+  `;
 
 const Header = styled.div`
   width: 1220px;
@@ -205,7 +211,7 @@ const HeadComponent = () => {
         <HambergerSVG />
         <DirectoryMenu>
           <MisMatch>
-            <MisMatchHeader>MisMatch</MisMatchHeader>
+            <MisMatchHeader>Mismatches</MisMatchHeader>
           </MisMatch>
           <LocationRoute>
             <RouteMenu>
@@ -227,7 +233,7 @@ const HeadComponent = () => {
               <BreadCrumbSVG />
             </span>
             <RouteMenu>
-              <CurrentRoute>Organization</CurrentRoute>
+              <CurrentRoute>Mismatches</CurrentRoute>
             </RouteMenu>
           </LocationRoute>
         </DirectoryMenu>
@@ -245,14 +251,7 @@ const HeadComponent = () => {
           <ProfileContainer>
             <img src={ProfilePhoto} alt="ProfilePhoto" />
           </ProfileContainer>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "3px;",
-            }}
-          >
+          <ProfileData>
             <ProfileInfo>
               <ProfileName>Bessie</ProfileName>
               <Profilename>Copper</Profilename>
@@ -261,7 +260,7 @@ const HeadComponent = () => {
               </DownIconStyle>
             </ProfileInfo>
             <ProfileRole>Org Manger</ProfileRole>
-          </div>
+          </ProfileData>
         </Profile>
       </Options>
     </Header>

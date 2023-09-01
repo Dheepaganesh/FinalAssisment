@@ -5,7 +5,7 @@ export const MainPage = styled.div`
   margin: 0%;
   padding: 0px;
   width: 1220px;
-  height: 800px;
+  height: auto;
   font-family: "SF Pro Display", sans-serif;
   border: 1px solid #a3adb8;
   border-bottom: none;
@@ -15,6 +15,8 @@ export const MainPage = styled.div`
     width: 100%;
   }
 `;
+
+
 
 export const StyledTab = styled(Tabs)`
   width: 1181px;
@@ -344,3 +346,11 @@ export const GraphContainer = styled.div`
   justify-content: space-between;
   background-color: white;
 `;
+
+export const Datavalue = styled.div`
+  margin:0 auto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+`

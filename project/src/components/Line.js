@@ -1,18 +1,20 @@
+import React from "react";
 import { Table, Tabs } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Line } from "react-chartjs-2";
-import { UserData } from "./GraphComponent";
-import { EmptyTable, GraphContainer } from "./StylePage/StyleComponent";
+import { Chart as ChartJs } from "chart.js/auto"; //Gived for Line Chart
 import { styled } from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 import StarSVG from "../svg/StarSVG";
+
 export const Record = styled.div`
   width: 742.042px;
   height: 507px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 570px;
+  margin-top: 590px;
+  margin-bottom: 40px;
   border-radius: 4px;
   border: 1px solid #e4e7ea;
   background: #fff;
@@ -228,13 +230,7 @@ const ChartComp = () => {
       <GraphDiv>
         <Line data={userData} options={options} height={200} width={420} />
       </GraphDiv>
-      {/* <div style={{ width: "800px", height: "400px", margin: "0 auto" }}>
-
-        </div> */}
       <RatingView>
-        {/* <StarContainer>
-          <Star />
-        </StarContainer> */}
         <RatingContent>
           <StarSVG />
           <Opinion>

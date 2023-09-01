@@ -2,29 +2,37 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchUser } from "../redux/action";
 import { Table } from "antd";
+import { Datavalue } from "./StylePage/StyleComponent";
 
 const GetData = () => {
-  const InputValue = useSelector((state) => state?.user.user);
-  const dispatch = useDispatch();
+  const FetchValue = useSelector((state) => state?.user);
+  const loading = useSelector((state) => state?.loading);
+  const error = useSelector((state) => state?.error);
 
-  const CheckData = () => {
-    console.log(InputValue.data);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(FetchUser());
   }, []);
   return (
     <div>
-      <Table
-        dataSource={InputValue.data}
-        columns={[
-          { title: "Id", dataIndex: "id" },
-          { title: "Name", dataIndex: "name" },
-          { title: "Organization ID", dataIndex: "organization_id" },
-          { title: "BluePrint ID", dataIndex: "blueprint_id" },
-        ]}
-      />
+      {loading ? (
+        <Datavalue>Loading</Datavalue>
+      ) : error ? (
+        <Datavalue>Error</Datavalue>
+      ) : (
+        <div>
+          <Table
+            dataSource={FetchValue?.data}
+            columns={[
+              { title: "Id", dataIndex: "id" },
+              { title: "Name", dataIndex: "name" },
+              { title: "Organization ID", dataIndex: "organization_id" },
+              { title: "BluePrint ID", dataIndex: "blueprint_id" },
+            ]}
+          />
+        </div>
+      )}
     </div>
   );
 };

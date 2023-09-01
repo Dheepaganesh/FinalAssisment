@@ -1,13 +1,7 @@
 import HeadComponent from "./Header";
-import { Button, Table, Checkbox, Tabs } from "antd";
+import { Table, Checkbox } from "antd";
 import SubHead from "./SubHead";
-import TableMenu from "./MenuTable";
-import { styled } from "styled-components";
-import PlusSVG from "../svg/plusSVG";
-import TabComponent from "./TabComponent";
 import { useState } from "react";
-import LineGraph from "./GraphData";
-import ChartComponent from "./GraphData";
 import ChartComp from "./Line";
 import { MainPage } from "./StylePage/StyleComponent";
 import { data } from "./TableData/DataContainer";
@@ -64,7 +58,7 @@ const items = [
         <span>
           <HardDriveSVG />
         </span>
-        <span>Mis matches</span>
+        <DataOptions>New Mismatches</DataOptions>
       </Data>
     ),
     columns: [],
@@ -183,8 +177,6 @@ const TableComponent = () => {
   const handleTabChange = (key) => {
     setActiveKey(key);
   };
-
-  const activeItem = items.find((item) => item.key === activeKey);
 
   return (
     <div>
