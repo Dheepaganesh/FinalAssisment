@@ -131,6 +131,15 @@ export const GraphDiv = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
 `;
+
+export const PercentageColor = styled.span`
+  color: #185998;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.28px;
+`;
 const ChartComp = () => {
   const [userData, setUserData] = useState({
     labels: [
@@ -236,7 +245,7 @@ const ChartComp = () => {
           <Opinion>
             <CustomerCount>156</CustomerCount>
             <RatingInfo>
-              You are in top <span>5%</span>
+              You are in top <PercentageColor>5%</PercentageColor>
             </RatingInfo>
             <RatingInfo>You are ranked 156 of 2,612</RatingInfo>
           </Opinion>
